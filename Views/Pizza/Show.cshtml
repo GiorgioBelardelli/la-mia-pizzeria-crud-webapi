@@ -1,0 +1,33 @@
+﻿@using la_mia_pizzeria_static.Data;
+@model Pizza
+
+@{
+    Layout = "_PizzeriaLayout";
+}
+
+<h1>Ecco la @Model.Nome </h1>
+<img src="@Model.FotoPath" alt="@Model.Nome" />
+<p>@Model.Descrizione</p>
+<strong>Prezzo: </strong>
+<span>@Model.Prezzo </span>
+<span> Categoria: @Model.GetCategoria() </span>
+<div>
+    <strong>Ingredienti: </strong>
+    
+    @if (Model.Ingredienti?.Count > 0) 
+        @foreach (var ingrediente in Model.Ingredienti)
+        {
+            <div style="background-color: #AAAAAA; display: flex; justify-content: center; align-items: center;
+                        border-radius: 3px; border-style: solid; border-color: #AAAAAA; padding: 2px;">
+                    @ingrediente.Nome
+            </div>
+        }
+        else
+        {
+            <p>Non ci sono ingredienti selezionati</p>
+        }
+</div>
+
+<div class="row">
+    <div class="col"><a href="@Url.Action("Index", "Pizza")">BACK</a></div>
+</div>

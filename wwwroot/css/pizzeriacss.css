@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0rem;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.card-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:2rem;
+}
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        list-style:none;
+    }
+nav ul a {
+    color: black;
+    text-decoration:none
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background-color: #333333;
+    color: #d6d6d6;
+}
+
+.form-container {
+    margin: 0 auto;
+    width: 50rem;
+    text-align: center;
+}
+
+form {
+    margin: 1rem 0;
+    
+}
+
+.create-input {
+    margin: 1rem 0;
+    width:50%;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid gray;
+    height: 2rem;
+}
+
+    .create-input:active {
+        border: 0px;
+    }
+
+.submit-button {
+    text-align: end;
+    color: white;
+    background-color: darkslategrey;
+    border: 0px;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}

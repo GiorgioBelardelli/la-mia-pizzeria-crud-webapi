@@ -1,0 +1,46 @@
+﻿@model List<Pizza>;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_PizzeriaLayout";
+}
+
+
+    <div class="wrapper">
+            <h1 class="center m-5">La nostra pizzeria!</h1>
+                <div class="card-container" style="">
+                    @foreach (var pizza in Model)
+                    {
+                        <div class="card mx-5" style="width: 300px; height: 350px;">
+                            <a href="#">
+                                <div class="card-top" style="border-bottom: 1px solid gray;">
+                                    <a href="@Url.Action("Show", "Pizza", new{ id = pizza.Id})">
+                                    <img src="@pizza.FotoPath" alt="Foto Pizza" style="max-width: 200px; height: 150px;" />    
+                                    </a>
+                                </div>
+                            </a>
+                            <div class="card-bot">
+                                <h3 class="card-title">@pizza.Nome</h3>
+                                <h5 class="d-inline" style="font-weight: 500">Ingredienti: </h5>
+                                <p class="card-text" style="font-style:italic;">@pizza.Descrizione</p>
+                                <br />
+                                <h5 class="d-inline" style="font-weight: 500">Prezzo: </h5>
+                                <span class="card-text">@pizza.Prezzo €</span>
+                            </div>
+                            <a href="@Url.Action("Update", "Pizza", new{ id = pizza.Id})">
+                                Modifica
+                            </a>
+                        </div>
+                        <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value="Elimina" />
+                        </form>
+                    }
+
+                    <a href="@Url.Action("Create", "Pizza")">
+                        Aggiungi una nuova pizza
+                    </a>
+                </div>
+    </div>
+   
+
+
